@@ -3,7 +3,7 @@ package com.mjdraperies.yardage.model;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.sql.Date;
 
 @Entity
 @Table(name= "yardage")
@@ -18,10 +18,10 @@ public class Yardage {
 	@Column(name = "description")
 	private String description;
 	@Column(name = "start_date")
-	private LocalDateTime startDate;
+	private Date startDate;
 
 	@Column(name = "finish_date")
-	private LocalDateTime finishDate;
+	private Date finishDate;
 	@Column(name = "panels")
 	private int panelNumber;
 
@@ -58,7 +58,7 @@ public class Yardage {
 	@Column(name = "labor_cost")
 	private BigDecimal laborCost;
 
-	public Yardage(String title, String description, LocalDateTime startDate, LocalDateTime finishDate, int panelNumber, int finishedLength, int yardagePerWidth, int widthPerPanel, int totalWidth, int totalYardage, BigDecimal costPerYard, BigDecimal fabricCost, BigDecimal shopSupplyCost, int liningPerYard, BigDecimal liningCost, BigDecimal laborCost) {
+	public Yardage(String title, String description, Date startDate, Date finishDate, int panelNumber, int finishedLength, int yardagePerWidth, int widthPerPanel, int totalWidth, int totalYardage, BigDecimal costPerYard, BigDecimal fabricCost, BigDecimal shopSupplyCost, int liningPerYard, BigDecimal liningCost, BigDecimal laborCost) {
 		this.title = title;
 		this.description = description;
 		this.startDate = startDate;
@@ -92,11 +92,11 @@ public class Yardage {
 		return description;
 	}
 
-	public LocalDateTime getStartDate() {
+	public Date getStartDate() {
 		return startDate;
 	}
 
-	public LocalDateTime getFinishDate() {
+	public Date getFinishDate() {
 		return finishDate;
 	}
 
@@ -156,11 +156,11 @@ public class Yardage {
 		this.description = description;
 	}
 
-	public void setStartDate(LocalDateTime startDate) {
+	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
 
-	public void setFinishDate(LocalDateTime finishDate) {
+	public void setFinishDate(Date finishDate) {
 		this.finishDate = finishDate;
 	}
 
