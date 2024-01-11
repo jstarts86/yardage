@@ -35,7 +35,45 @@ public class YardageController {
 		}
 	}
 	@GetMapping("/yardages/{id}")
-	public ResponseEntity<Yardage> getYardageById(@PathVariable("id") long id, @RequestBody Yardage yardage) {
+	public ResponseEntity<Yardage> getYardageById(@PathVariable("id") long id) {
+		Optional<Yardage> yardageData = yardageRepository.findById(id);
+
+		if(yardageData.isPresent()) {
+			return new ResponseEntity<>(yardageData.get(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	@PostMapping("/yardages")
+	public ResponseEntity<Yardage> createYardage(@RequestBody Yardage yardage) {
+		try {
+			Yardage _yardage = yardageRepository
+					.save(new Yardage(
+							yardage.getTitle(),
+							yardage.getDescription(),
+							yardage.getStartDate(),
+							yardage.getFinishDate(),
+							yardage.getCompleted(),
+							yardage.getPanelNumber(),
+							yardage.getFinishedLength(),
+							yardage.getYardagePerWidth(),
+							yardage.getWidthPerPanel(),
+							yardage.getTotalWidth(),
+							yardage.getTotalYardage(),
+							yardage.getCostPerYard(),
+							yardage.getFabricCost(),
+							yardage.getShopSupplyCost(),
+							yardage.getLiningPerYard(),
+							yardage.getLiningCost(),
+							yardage.getLaborCost()
+					));
+			return new ResponseEntity<>(_yardage, HttpStatus.CREATED);
+		} catch (Exception e) {
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	@PutMapping("/yardages/{id}")
+	public ResponseEntity<Yardage> updateYardage(@PathVariable("id") long id, @RequestBody Yardage yardage) {
 		Optional<Yardage> yardageData = yardageRepository.findById(id);
 
 		if(yardageData.isPresent()) {
@@ -44,6 +82,7 @@ public class YardageController {
 			_yardage.setDescription(yardage.getDescription());
 			_yardage.setStartDate(yardage.getStartDate());
 			_yardage.setFinishDate(yardage.getFinishDate());
+			_yardage.setCompleted(yardage.getCompleted());
 			_yardage.setPanelNumber(yardage.getPanelNumber());
 			_yardage.setFinishedLength(yardage.getFinishedLength());
 			_yardage.setYardagePerWidth(yardage.getYardagePerWidth());
@@ -60,7 +99,9 @@ public class YardageController {
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
+
 	}
+
 	@DeleteMapping("/yardages/{id}")
 	public ResponseEntity<HttpStatus> deleteYardage(@PathVariable("id") long id) {
 		try {
@@ -80,5 +121,16 @@ public class YardageController {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-
+	@GetMapping("/yardages/completed")
+	public ResponseEntity<List<Yardage>> findByCompleted() {
+		try {
+			List<Yardage> yardages = yardageRepository.findByIsCompleted(true);
+			if(yardages.isEmpty()) {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+			return new ResponseEntity<>(yardages, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
 }

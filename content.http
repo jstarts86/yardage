@@ -1,0 +1,56 @@
+### Find all Content
+GET http://localhost:8080/api/yardages
+
+
+### Get Yardages by ID
+GET http://localhost:8080/api/yardages/2
+
+
+### Create new Content
+POST http://localhost:8080/api/yardages
+Content-Type: application/json
+
+  {
+    "title": "Custom Drapery",
+    "description": "Navy blue velvet fabric",
+    "startDate": "2024-01-10",
+    "finishDate": "2024-03-15",
+    "panelNumber": 5,
+    "finishedLength": 20,
+    "yardagePerWidth": 10,
+    "widthPerPanel": 20,
+    "totalWidth": 100,
+    "totalYardage": 200,
+    "costPerYard": 15.50,
+    "fabricCost": 310.00,
+    "shopSupplyCost": 25.00,
+    "liningPerYard": 2,
+    "liningCost": 50.00,
+    "laborCost": 150.00,
+    "completed": true
+  }
+
+### Update existing Yardage with invalid ID
+POST http://localhost:8080/api/yardages/1
+Content-Type: application/json
+
+{
+  "id": 2,
+  "title": "Custom Drapery",
+  "description": "Navy blue velvet fabric",
+  "startDate": "2024-01-10",
+  "finishDate": "2024-03-15",
+  "panelNumber": 5,
+  "finishedLength": 20,
+  "yardagePerWidth": 10,
+  "widthPerPanel": 20,
+  "totalWidth": 100,
+  "totalYardage": 200,
+  "costPerYard": 15.50,
+  "fabricCost": 310.00,
+  "shopSupplyCost": 25.00,
+  "liningPerYard": 2,
+  "liningCost": 50.00,
+  "laborCost": 150.00,
+  "completed": true
+}

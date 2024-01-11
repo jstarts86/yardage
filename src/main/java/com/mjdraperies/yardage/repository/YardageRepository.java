@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface YardageRepository extends JpaRepository<Yardage, Long> {
 	List<Yardage> findByTitleContaining(String title);
+	List<Yardage> findByIsCompleted(boolean isCompleted);
 }

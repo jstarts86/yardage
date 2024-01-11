@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import java.sql.Date;
 
 @Entity
-@Table(name= "yardage")
+@Table(name= "YARDAGE")
 public class Yardage {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,6 +22,8 @@ public class Yardage {
 
 	@Column(name = "finish_date")
 	private Date finishDate;
+	@Column(name = "is_completed")
+	private Boolean isCompleted;
 	@Column(name = "panels")
 	private int panelNumber;
 
@@ -58,11 +60,12 @@ public class Yardage {
 	@Column(name = "labor_cost")
 	private BigDecimal laborCost;
 
-	public Yardage(String title, String description, Date startDate, Date finishDate, int panelNumber, int finishedLength, int yardagePerWidth, int widthPerPanel, int totalWidth, int totalYardage, BigDecimal costPerYard, BigDecimal fabricCost, BigDecimal shopSupplyCost, int liningPerYard, BigDecimal liningCost, BigDecimal laborCost) {
+	public Yardage(String title, String description, Date startDate, Date finishDate, Boolean isCompleted, int panelNumber, int finishedLength, int yardagePerWidth, int widthPerPanel, int totalWidth, int totalYardage, BigDecimal costPerYard, BigDecimal fabricCost, BigDecimal shopSupplyCost, int liningPerYard, BigDecimal liningCost, BigDecimal laborCost) {
 		this.title = title;
 		this.description = description;
 		this.startDate = startDate;
 		this.finishDate = finishDate;
+		this.isCompleted = isCompleted;
 		this.panelNumber = panelNumber;
 		this.finishedLength = finishedLength;
 		this.yardagePerWidth = yardagePerWidth;
@@ -98,6 +101,14 @@ public class Yardage {
 
 	public Date getFinishDate() {
 		return finishDate;
+	}
+
+	public Boolean getCompleted() {
+		return isCompleted;
+	}
+
+	public void setCompleted(Boolean completed) {
+		isCompleted = completed;
 	}
 
 	public int getPanelNumber() {
@@ -218,6 +229,7 @@ public class Yardage {
 				", description='" + description + '\'' +
 				", startDate=" + startDate +
 				", finishDate=" + finishDate +
+				", isCompleted="  + isCompleted +
 				", panelNumber=" + panelNumber +
 				", finishedLength=" + finishedLength +
 				", yardagePerWidth=" + yardagePerWidth +
