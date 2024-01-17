@@ -31,7 +31,7 @@ Content-Type: application/json
   }
 
 ### Update existing Yardage with invalid ID
-POST http://localhost:8080/api/yardages/1
+POST http://localhost:8080/api/yardages
 Content-Type: application/json
 
 {
