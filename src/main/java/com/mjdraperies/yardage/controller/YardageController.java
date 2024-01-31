@@ -65,7 +65,8 @@ public class YardageController {
 							yardage.getShopSupplyCost(),
 							yardage.getLiningPerYard(),
 							yardage.getLiningCost(),
-							yardage.getLaborCost()
+							yardage.getLaborCost(),
+							yardage.getTotalCost()
 					));
 			return new ResponseEntity<>(_yardage, HttpStatus.CREATED);
 		} catch (Exception e) {
@@ -95,6 +96,7 @@ public class YardageController {
 			_yardage.setLiningPerYard(yardage.getLiningPerYard());
 			_yardage.setLiningCost(yardage.getLiningCost());
 			_yardage.setLaborCost(yardage.getLaborCost());
+			_yardage.setTotalCost(yardage.getTotalCost());
 			return new ResponseEntity<>(yardageRepository.save(_yardage), HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);

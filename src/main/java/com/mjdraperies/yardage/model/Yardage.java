@@ -1,66 +1,47 @@
 package com.mjdraperies.yardage.model;
 
-import jakarta.persistence.*;
-
 import java.math.BigDecimal;
 import java.sql.Date;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
-@Table(name= "YARDAGE")
+@Document(collection= "YARDAGE")
 public class Yardage {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
-	@Column(name = "title")
 	private String title;
 
-	@Column(name = "description")
 	private String description;
-	@Column(name = "start_date")
 	private Date startDate;
 
-	@Column(name = "finish_date")
 	private Date finishDate;
-	@Column(name = "is_completed")
 	private Boolean isCompleted;
-	@Column(name = "panels")
 	private int panelNumber;
 
-	@Column(name = "finished_length")
 	private int finishedLength;
-
-	@Column(name = "yardage_per_width")
 	private int yardagePerWidth;
 
-	@Column(name = "width_per_panel")
 	private int widthPerPanel;
 
-	@Column(name = "total_width")
 	private int totalWidth;
 
-	@Column(name = "total_yardage")
 	private int totalYardage;
 
-	@Column(name = "cost_per_yard")
 	private BigDecimal costPerYard;
 
-	@Column(name = "fabric_cost")
 	private BigDecimal fabricCost;
 
-	@Column(name = "shop_supply_cost")
 	private BigDecimal shopSupplyCost;
 
-	@Column(name = "lining_per_yard")
 	private int liningPerYard;
 
-	@Column(name = "lining_cost")
 	private BigDecimal liningCost;
 
-	@Column(name = "labor_cost")
 	private BigDecimal laborCost;
+	private BigDecimal totalCost;
 
-	public Yardage(String title, String description, Date startDate, Date finishDate, Boolean isCompleted, int panelNumber, int finishedLength, int yardagePerWidth, int widthPerPanel, int totalWidth, int totalYardage, BigDecimal costPerYard, BigDecimal fabricCost, BigDecimal shopSupplyCost, int liningPerYard, BigDecimal liningCost, BigDecimal laborCost) {
+	public Yardage(String title, String description, Date startDate, Date finishDate, Boolean isCompleted, int panelNumber, int finishedLength, int yardagePerWidth, int widthPerPanel, int totalWidth, int totalYardage, BigDecimal costPerYard, BigDecimal fabricCost, BigDecimal shopSupplyCost, int liningPerYard, BigDecimal liningCost, BigDecimal laborCost, BigDecimal totalCost) {
 		this.title = title;
 		this.description = description;
 		this.startDate = startDate;
@@ -78,6 +59,15 @@ public class Yardage {
 		this.liningPerYard = liningPerYard;
 		this.liningCost = liningCost;
 		this.laborCost = laborCost;
+		this.totalCost = totalCost;
+	}
+
+	public BigDecimal getTotalCost() {
+		return totalCost;
+	}
+
+	public void setTotalCost(BigDecimal totalCost) {
+		this.totalCost = totalCost;
 	}
 
 	public Yardage() {
@@ -242,6 +232,7 @@ public class Yardage {
 				", liningPerYard=" + liningPerYard +
 				", liningCost=" + liningCost +
 				", laborCost=" + laborCost +
+				", totalCost=" + totalCost +
 				'}';
 	}
 

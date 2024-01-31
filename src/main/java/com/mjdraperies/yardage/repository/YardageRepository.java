@@ -1,11 +1,10 @@
 package com.mjdraperies.yardage.repository;
 
 import com.mjdraperies.yardage.model.Yardage;
-import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
-
-public interface YardageRepository extends JpaRepository<Yardage, Long> {
+import org.springframework.data.mongodb.repository.MongoRepository;
+public interface YardageRepository extends MongoRepository<Yardage, Long> {
 	List<Yardage> findByTitleContaining(String title);
 	List<Yardage> findByIsCompleted(boolean isCompleted);
 }
