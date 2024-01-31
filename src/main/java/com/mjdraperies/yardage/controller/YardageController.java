@@ -35,7 +35,7 @@ public class YardageController {
 		}
 	}
 	@GetMapping("/yardages/{id}")
-	public ResponseEntity<Yardage> getYardageById(@PathVariable("id") long id) {
+	public ResponseEntity<Yardage> getYardageById(@PathVariable("id") String id) {
 		Optional<Yardage> yardageData = yardageRepository.findById(id);
 
 		if(yardageData.isPresent()) {
@@ -74,7 +74,7 @@ public class YardageController {
 		}
 	}
 	@PutMapping("/yardages/{id}")
-	public ResponseEntity<Yardage> updateYardage(@PathVariable("id") long id, @RequestBody Yardage yardage) {
+	public ResponseEntity<Yardage> updateYardage(@PathVariable("id") String id, @RequestBody Yardage yardage) {
 		Optional<Yardage> yardageData = yardageRepository.findById(id);
 
 		if(yardageData.isPresent()) {
@@ -105,7 +105,7 @@ public class YardageController {
 	}
 
 	@DeleteMapping("/yardages/{id}")
-	public ResponseEntity<HttpStatus> deleteYardage(@PathVariable("id") long id) {
+	public ResponseEntity<HttpStatus> deleteYardage(@PathVariable("id") String id) {
 		try {
 			yardageRepository.deleteById(id);
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);

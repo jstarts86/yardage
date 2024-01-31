@@ -27,6 +27,7 @@ Content-Type: application/json
     "liningPerYard": 2,
     "liningCost": 50.00,
     "laborCost": 150.00,
+    "totalCost": 599.00,
     "completed": true
   }
 

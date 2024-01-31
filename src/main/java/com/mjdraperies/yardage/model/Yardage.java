@@ -2,13 +2,14 @@ package com.mjdraperies.yardage.model;
 
 import java.math.BigDecimal;
 import java.sql.Date;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection= "YARDAGE")
+@Document(collection = "yardages")
 public class Yardage {
 	@Id
-	private long id;
+	private String id;
 
 	private String title;
 
@@ -73,8 +74,12 @@ public class Yardage {
 	public Yardage() {
 	}
 
-	public long getId() {
+	public String getId() {
 		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getTitle() {
@@ -212,14 +217,15 @@ public class Yardage {
 	public void setLaborCost(BigDecimal laborCost) {
 		this.laborCost = laborCost;
 	}
+
 	@Override
 	public String toString() {
-		return "Yardage{" +
-				", title='" + title + '\'' +
+		return "Yardage [" +
+				"title='" + title + '\'' +
 				", description='" + description + '\'' +
 				", startDate=" + startDate +
 				", finishDate=" + finishDate +
-				", isCompleted="  + isCompleted +
+				", isCompleted=" + isCompleted +
 				", panelNumber=" + panelNumber +
 				", finishedLength=" + finishedLength +
 				", yardagePerWidth=" + yardagePerWidth +
@@ -232,8 +238,7 @@ public class Yardage {
 				", liningPerYard=" + liningPerYard +
 				", liningCost=" + liningCost +
 				", laborCost=" + laborCost +
-				", totalCost=" + totalCost +
-				'}';
+				']';
 	}
 
 }
