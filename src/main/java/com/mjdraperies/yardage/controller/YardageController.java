@@ -137,7 +137,7 @@ public class YardageController {
 	@GetMapping("/yardages/completed")
 	public ResponseEntity<List<Yardage>> findByCompleted() {
 		try {
-			List<Yardage> yardages = yardageRepository.findByIsCompleted(true);
+			List<Yardage> yardages = yardageRepository.findByCompleted(true);
 			if(yardages.isEmpty()) {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 			}

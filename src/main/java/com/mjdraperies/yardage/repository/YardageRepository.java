@@ -6,5 +6,5 @@ import java.util.List;
 import org.springframework.data.mongodb.repository.MongoRepository;
 public interface YardageRepository extends MongoRepository<Yardage, String> {
 	List<Yardage> findByTitleContaining(String title);
-	List<Yardage> findByIsCompleted(boolean isCompleted);
+	List<Yardage> findByCompleted(boolean completed);
 }

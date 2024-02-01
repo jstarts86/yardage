@@ -1,10 +1,11 @@
 package com.mjdraperies.yardage.model;
 
-import java.math.BigDecimal;
-import java.sql.Date;
-
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Document(collection = "yardages")
 public class Yardage {
@@ -14,10 +15,12 @@ public class Yardage {
 	private String title;
 
 	private String description;
-	private Date startDate;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	private LocalDate startDate;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 
-	private Date finishDate;
-	private Boolean isCompleted;
+	private LocalDate finishDate;
+	private Boolean completed;
 	private int panelNumber;
 
 	private int finishedLength;
@@ -42,12 +45,14 @@ public class Yardage {
 	private BigDecimal laborCost;
 	private BigDecimal totalCost;
 
-	public Yardage(String title, String description, Date startDate, Date finishDate, Boolean isCompleted, int panelNumber, int finishedLength, int yardagePerWidth, int widthPerPanel, int totalWidth, int totalYardage, BigDecimal costPerYard, BigDecimal fabricCost, BigDecimal shopSupplyCost, int liningPerYard, BigDecimal liningCost, BigDecimal laborCost, BigDecimal totalCost) {
+	public Yardage(String title, String description, LocalDate startDate, LocalDate finishDate, Boolean completed, int panelNumber, int finishedLength, int yardagePerWidth, int widthPerPanel,
+	               int totalWidth, int totalYardage, BigDecimal costPerYard, BigDecimal fabricCost, BigDecimal shopSupplyCost, int liningPerYard, BigDecimal liningCost, BigDecimal laborCost,
+	               BigDecimal totalCost) {
 		this.title = title;
 		this.description = description;
 		this.startDate = startDate;
 		this.finishDate = finishDate;
-		this.isCompleted = isCompleted;
+		this.completed = completed;
 		this.panelNumber = panelNumber;
 		this.finishedLength = finishedLength;
 		this.yardagePerWidth = yardagePerWidth;
@@ -87,28 +92,28 @@ public class Yardage {
 		this.description = description;
 	}
 
-	public Date getStartDate() {
+	public LocalDate getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(Date startDate) {
+	public void setStartDate(LocalDate startDate) {
 		this.startDate = startDate;
 	}
 
-	public Date getFinishDate() {
+	public LocalDate getFinishDate() {
 		return finishDate;
 	}
 
-	public void setFinishDate(Date finishDate) {
+	public void setFinishDate(LocalDate finishDate) {
 		this.finishDate = finishDate;
 	}
 
 	public Boolean getCompleted() {
-		return isCompleted;
+		return completed;
 	}
 
 	public void setCompleted(Boolean completed) {
-		isCompleted = completed;
+		this.completed = completed;
 	}
 
 	public int getPanelNumber() {
@@ -226,7 +231,7 @@ public class Yardage {
 				", description='" + description + '\'' +
 				", startDate=" + startDate +
 				", finishDate=" + finishDate +
-				", isCompleted=" + isCompleted +
+				", isCompleted=" + completed +
 				", panelNumber=" + panelNumber +
 				", finishedLength=" + finishedLength +
 				", yardagePerWidth=" + yardagePerWidth +
