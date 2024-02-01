@@ -63,17 +63,6 @@ public class Yardage {
 		this.totalCost = totalCost;
 	}
 
-	public BigDecimal getTotalCost() {
-		return totalCost;
-	}
-
-	public void setTotalCost(BigDecimal totalCost) {
-		this.totalCost = totalCost;
-	}
-
-	public Yardage() {
-	}
-
 	public String getId() {
 		return id;
 	}
@@ -86,16 +75,32 @@ public class Yardage {
 		return title;
 	}
 
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
 	public String getDescription() {
 		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public Date getStartDate() {
 		return startDate;
 	}
 
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+
 	public Date getFinishDate() {
 		return finishDate;
+	}
+
+	public void setFinishDate(Date finishDate) {
+		this.finishDate = finishDate;
 	}
 
 	public Boolean getCompleted() {
@@ -110,112 +115,108 @@ public class Yardage {
 		return panelNumber;
 	}
 
-	public int getFinishedLength() {
-		return finishedLength;
-	}
-
-	public int getYardagePerWidth() {
-		return yardagePerWidth;
-	}
-
-	public int getWidthPerPanel() {
-		return widthPerPanel;
-	}
-
-	public int getTotalWidth() {
-		return totalWidth;
-	}
-
-	public int getTotalYardage() {
-		return totalYardage;
-	}
-
-	public BigDecimal getCostPerYard() {
-		return costPerYard;
-	}
-
-	public BigDecimal getFabricCost() {
-		return fabricCost;
-	}
-
-	public BigDecimal getShopSupplyCost() {
-		return shopSupplyCost;
-	}
-
-	public int getLiningPerYard() {
-		return liningPerYard;
-	}
-
-	public BigDecimal getLiningCost() {
-		return liningCost;
-	}
-
-	public BigDecimal getLaborCost() {
-		return laborCost;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
-	}
-
-	public void setFinishDate(Date finishDate) {
-		this.finishDate = finishDate;
-	}
-
 	public void setPanelNumber(int panelNumber) {
 		this.panelNumber = panelNumber;
+	}
+
+	public int getFinishedLength() {
+		return finishedLength;
 	}
 
 	public void setFinishedLength(int finishedLength) {
 		this.finishedLength = finishedLength;
 	}
 
+	public int getYardagePerWidth() {
+		return yardagePerWidth;
+	}
+
 	public void setYardagePerWidth(int yardagePerWidth) {
 		this.yardagePerWidth = yardagePerWidth;
+	}
+
+	public int getWidthPerPanel() {
+		return widthPerPanel;
 	}
 
 	public void setWidthPerPanel(int widthPerPanel) {
 		this.widthPerPanel = widthPerPanel;
 	}
 
+	public int getTotalWidth() {
+		return totalWidth;
+	}
+
 	public void setTotalWidth(int totalWidth) {
 		this.totalWidth = totalWidth;
+	}
+
+	public int getTotalYardage() {
+		return totalYardage;
 	}
 
 	public void setTotalYardage(int totalYardage) {
 		this.totalYardage = totalYardage;
 	}
 
+	public BigDecimal getCostPerYard() {
+		return costPerYard;
+	}
+
 	public void setCostPerYard(BigDecimal costPerYard) {
 		this.costPerYard = costPerYard;
+	}
+
+	public BigDecimal getFabricCost() {
+		return fabricCost;
 	}
 
 	public void setFabricCost(BigDecimal fabricCost) {
 		this.fabricCost = fabricCost;
 	}
 
+	public BigDecimal getShopSupplyCost() {
+		return shopSupplyCost;
+	}
+
 	public void setShopSupplyCost(BigDecimal shopSupplyCost) {
 		this.shopSupplyCost = shopSupplyCost;
+	}
+
+	public int getLiningPerYard() {
+		return liningPerYard;
 	}
 
 	public void setLiningPerYard(int liningPerYard) {
 		this.liningPerYard = liningPerYard;
 	}
 
+	public BigDecimal getLiningCost() {
+		return liningCost;
+	}
+
 	public void setLiningCost(BigDecimal liningCost) {
 		this.liningCost = liningCost;
 	}
 
+	public BigDecimal getLaborCost() {
+		return laborCost;
+	}
+
 	public void setLaborCost(BigDecimal laborCost) {
 		this.laborCost = laborCost;
+	}
+
+	public BigDecimal getTotalCost() {
+		return totalCost;
+	}
+
+	public void setTotalCost(BigDecimal totalCost) {
+		this.totalCost = totalCost;
+	}
+
+	public Yardage() {
+
 	}
 
 	@Override
